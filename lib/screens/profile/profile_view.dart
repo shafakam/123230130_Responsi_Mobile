@@ -10,9 +10,10 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Profile'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
       body: Padding(
@@ -23,7 +24,7 @@ class ProfileView extends StatelessWidget {
             const Center(
               child: CircleAvatar(
                 radius: 50,
-                backgroundColor: Colors.blueAccent,
+                backgroundColor: Color(0xFF242424),
                 child: Icon(Icons.person, size: 50, color: Colors.white),
               ),
             ),
@@ -40,25 +41,21 @@ class ProfileView extends StatelessWidget {
               ),
             ),
             const Divider(height: 40, thickness: 2),
-            const Text(
-              'Kesan:',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            Obx(
+              () => ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.favorite, color: Colors.blueAccent),
+                title: const Text('Anime favorit'),
+                trailing: Text(
+                  controller.favCount.value.toString(),
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
-            const SizedBox(height: 5),
-            const Text(
-              'Belajar Flutter dengan GetX dan Hive ternyata sangat menyenangkan dan kodenya rapi!',
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Pesan:',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            const SizedBox(height: 5),
-            const Text(
-              'Terus semangat belajar ngoding. Error adalah guru terbaik kita.',
-              style: TextStyle(fontSize: 16),
-            ),
+            const SizedBox(height: 10),
             const Spacer(),
             SizedBox(
               width: double.infinity,
@@ -68,7 +65,7 @@ class ProfileView extends StatelessWidget {
                 icon: const Icon(Icons.logout),
                 label: const Text('Logout', style: TextStyle(fontSize: 18)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
+                  backgroundColor: Colors.blueAccent,
                   foregroundColor: Colors.white,
                 ),
               ),

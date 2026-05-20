@@ -20,7 +20,7 @@ class LoginController extends GetxController {
     } else {
       Get.snackbar(
         'Login Gagal',
-        'Username tidak boleh kosong dan Password harus 12345678',
+        'Username tidak boleh kosong dan password harus 123230130',
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,

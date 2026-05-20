@@ -1,17 +1,45 @@
-# responsi
+# Keripikroll
 
-A new Flutter project.
+Aplikasi Flutter sederhana untuk menampilkan daftar anime dari API Kitsu. Project ini dibuat untuk responsi praktikum mobile.
 
-## Getting Started
+## Fitur
 
-This project is a starting point for a Flutter application.
+- Login menggunakan username dan password.
+- Session login disimpan dengan SharedPreferences.
+- Menampilkan daftar anime dalam bentuk grid.
+- Detail anime berisi cover, rating, episode, rating umur, dan sinopsis.
+- Menambahkan dan menghapus anime favorit.
+- Data favorit disimpan menggunakan Hive.
+- Profile menampilkan username dan jumlah anime favorit.
 
-A few resources to get you started if this is your first Flutter project:
+## API
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Data anime diambil dari Kitsu:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+https://kitsu.io/api/edge/anime/?page[limit]=20&page[offset]=0
+https://kitsu.io/api/edge/anime/{anime_id}
+```
+
+## Login
+
+Username bebas diisi apa saja.
+
+```text
+Password: 123230130
+```
+
+## Cara Menjalankan
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Package
+
+- get
+- http
+- hive
+- hive_flutter
+- shared_preferences

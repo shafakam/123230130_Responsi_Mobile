@@ -6,38 +6,38 @@ part of 'fav_models.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class FavModelsAdapter extends TypeAdapter<FavModels> {
+class FavoriteModelAdapter extends TypeAdapter<FavoriteModel> {
   @override
   final int typeId = 0;
 
   @override
-  FavModels read(BinaryReader reader) {
+  FavoriteModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return FavModels(
-      id: fields[0] as int,
-      titles: fields[1] as String,
-      coverImage: fields[3] as String,
-      averageRating: fields[2] as double,
-      username: fields[5] as String,
+    return FavoriteModel(
+      id: fields[0] as String,
+      title: fields[1] as String,
+      rating: fields[2] as String,
+      posterImage: fields[3] as String,
+      username: fields[4] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, FavModels obj) {
+  void write(BinaryWriter writer, FavoriteModel obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.titles)
+      ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.averageRating)
+      ..write(obj.rating)
       ..writeByte(3)
-      ..write(obj.coverImage)
-      ..writeByte(5)
+      ..write(obj.posterImage)
+      ..writeByte(4)
       ..write(obj.username);
   }
 
@@ -47,7 +47,7 @@ class FavModelsAdapter extends TypeAdapter<FavModels> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is FavModelsAdapter &&
+      other is FavoriteModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
